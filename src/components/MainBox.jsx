@@ -6,7 +6,7 @@ const MainBox = () => {
     const [nextTurn, setNextTurn] = useState(true);
     const [usedBox, setUsedBox] = useState(Array(9).fill(0));
     // const [gameOver, setGameOver] = useState(false);
-    function gameOver(){
+    function gameOver() {
         if (!usedBox.includes(0)) {
             return true;
         }
@@ -15,25 +15,25 @@ const MainBox = () => {
         if (squares[i] || calculateWinner(squares)) {
             return;
         }
-       
+
         const nextSquares = squares.slice();
         const newUsedBox = usedBox.slice();
-       
-            if (newUsedBox[i] == 0) {
-                if (nextTurn == true) {
-                    nextSquares[i] = 'X';
-                    setNextTurn(false);
-                }
-                else {
-                    nextSquares[i] = '0';
-                    setNextTurn(true);
-                }
-                setSquares(nextSquares);//render component with new array
-                newUsedBox[i] = 1;
-                setUsedBox(newUsedBox);
 
+        if (newUsedBox[i] == 0) {
+            if (nextTurn == true) {
+                nextSquares[i] = 'X';
+                setNextTurn(false);
             }
-        
+            else {
+                nextSquares[i] = '0';
+                setNextTurn(true);
+            }
+            setSquares(nextSquares);//render component with new array
+            newUsedBox[i] = 1;
+            setUsedBox(newUsedBox);
+
+        }
+
 
     }
     let result = calculateWinner(squares);
@@ -71,7 +71,7 @@ const MainBox = () => {
 
     );
 }
-
+//  Evaluvatinig the winner 
 function calculateWinner(squares) {
     const lines = [
         [0, 1, 2],

@@ -49,6 +49,7 @@ const MainBox = () => {
     }
     return (
         <>
+            <h1>TIC TAC TOE</h1>
             <div className="status">{res}</div>
             <div className='boardRow' >
                 {/* passing values as props */}
